@@ -4,12 +4,21 @@
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/vimshell.vim'
+"NeoBundle 'Shougo/vimshell.vim'
+"NeoBundle 'Shougo/vimfiler.vim'
 "NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neomru.vim'
+"NeoBundle 'Shougo/neomru.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 "tpope's plugins
 NeoBundle 'tpope/vim-fugitive'                     "git inside vim
@@ -25,12 +34,12 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-rbenv'
 NeoBundle 'tpope/vim-obsession'
 
-NeoBundle "ryanoasis/vim-devicons"                 "icons for files and libraries
 
 " All scrooloose plugins  
 NeoBundle "vim-syntastic/syntastic"                   "to highlight syntax
 NeoBundle 'scrooloose/nerdcommenter'               "to autocommenting based on file type
 NeoBundle "scrooloose/nerdtree"                    "classic file explorer
+"NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle "jistr/vim-nerdtree-tabs"                "must have plugin for nerdtree
 
 "NeoBundle 'gmarik/vundle'                         "replaced it with neobundle
@@ -46,7 +55,6 @@ NeoBundle 'sickill/vim-pasta'
 "NeoBundle "spolu/dwm.vim"                         "Window Tile manager
 NeoBundle "mbbill/undotree"                        "Undo tree that help while undoing things
 NeoBundle "mhinz/vim-startify"                     "keeps histroy of previously opened files
-NeoBundle 'christoomey/vim-tmux-navigator'         "to navigate between tmux windows
 "NeoBundle 'Valloric/YouCompleteMe'                "replaced with neocomplete
 NeoBundle 'chriskempson/base16-vim'                "Colors to vim
 NeoBundle 'matze/vim-move'                         "<A-k>   Move current line/selection up,  <A-j>   Move current line/selection down
@@ -62,37 +70,39 @@ NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "tomtom/tlib_vim"
 
 "Helps in aligning text
-NeoBundle 'godlygeek/tabular'
+NeoBundle 'godlygeek/tabular'                       " :Tab /<symbol>
 NeoBundle 'Yggdroot/indentLine'
 
 "For html css javascript and coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'honza/vim-snippets'                      "Snippets
+NeoBundle 'honza/vim-snippets'                      " Snippets
 NeoBundle 'bonsaiben/bootstrap-snippets'            " Boottrap Snippets
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "gregsexton/MatchTag"
 
 "colors to vim
-NeoBundle 'Rykka/colorv.vim'
-NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'Rykka/colorv.vim'                        "Color pallete <leader>cv 
+NeoBundle 'flazz/vim-colorschemes'                  "One colorscheme to rule them all
 "NeoBundle 'dhruvasagar/vim-railscasts-theme'
 "NeoBundle 'altercation/vim-colors-solarized.git'
 "NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'Zuckonit/vim-airline-tomato'
 NeoBundle 'edkolev/tmuxline.vim'
-"NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'mhinz/vim-signify'
+NeoBundle 'airblade/vim-gitgutter'
+"NeoBundle 'mhinz/vim-signify'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'gabrielelana/pomicons'
-NeoBundle 'FredKSchott/CoVim'
+"NeoBundle 'FredKSchott/CoVim'
 NeoBundle 'itchyny/calendar.vim'
 "NeoBundle 'itchyny/lightline.vim'
 
 NeoBundle 'itchyny/dictionary.vim'
 NeoBundle 'koron/nyancat-vim'
+NeoBundle 'christoomey/vim-tmux-navigator'         "to navigate between tmux windows
 NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'mattn/webapi-vim'
 NeoBundle 'L9'
@@ -100,14 +110,14 @@ NeoBundle 'FuzzyFinder'
 NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
 
 "new plugins have to explore
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'dhruvasagar/vim-table-mode'
+"NeoBundle 'junegunn/vim-easy-align'
+"NeoBundle 'dhruvasagar/vim-table-mode'
 "NeoBundle 'myusuf3/numbers.vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'kien/ctrlp.vim'
+"NeoBundle 'mustache/vim-mustache-handlebars'
+"NeoBundle 'gregsexton/gitv'
+"NeoBundle 'tsukkee/unite-tag'
+"NeoBundle 'gcmt/wildfire.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 "NeoBundle 'saihoooooooo/glowshi-ft.vim'
 
 " tern
@@ -134,4 +144,7 @@ NeoBundle 'cmather/vim-meteor-snippets'
 "NeoBundle 'shime/vim-livedown'
 
 NeoBundle 'walm/jshint.vim'
+
+"NeoBundle "ryanoasis/vim-devicons"                 "icons for files and libraries
+
 NeoBundleCheck                                     "Installation check.

@@ -75,36 +75,36 @@ nnoremap <leader>vs :VimShellPop<CR>
 nnoremap <leader>vt :VimShellTab<CR>
 
 "Rails vim key-mappings
-nnoremap <leader>rm :Rmodel<space>
-nnoremap <leader>rv :Rview<space>
-nnoremap <leader>rx :Rextract<space>
-nnoremap <leader>rc :Rcontroller<space>
-vnoremap <leader>rx :Rextract<space>
-nnoremap <leader>rs :Rstylesheet<space>
-nnoremap <leader>rj :Rjavascript<space>
+"nnoremap <leader>rm :Rmodel<space>
+"nnoremap <leader>rv :Rview<space>
+"nnoremap <leader>rx :Rextract<space>
+"nnoremap <leader>rc :Rcontroller<space>
+"vnoremap <leader>rx :Rextract<space>
+"nnoremap <leader>rs :Rstylesheet<space>
+"nnoremap <leader>rj :Rjavascript<space>
 
-nnoremap <leader>ge :e Gemfile<CR>
-nnoremap <leader>rr :e config/routes.rb<CR>
+"nnoremap <leader>ge :e Gemfile<CR>
+"nnoremap <leader>rr :e config/routes.rb<CR>
 
-nnoremap <leader>rk :Rake<space>
-nnoremap <leader>rdm :Rake db:migrate<CR>
-nnoremap <leader>rdr :Rake db:rollback<CR>
-nnoremap <leader>rdd :Rake db:drop<CR>
+"nnoremap <leader>rk :Rake<space>
+"nnoremap <leader>rdm :Rake db:migrate<CR>
+"nnoremap <leader>rdr :Rake db:rollback<CR>
+"nnoremap <leader>rdd :Rake db:drop<CR>
 
-nnoremap <leader>rg :Rgenerate<space>
-nnoremap <leader>rgc :Rgenerate controller<space>
-nnoremap <leader>rgm :Rgenerate model<space>
-nnoremap <leader>rgd :Rgenerate migration<space>
-nnoremap <leader>rgs :Rgenerate scaffold<space>
-nnoremap <leader>rgt :Rgenerate task<space>
-nnoremap <leader>rgr :Rgenerate resource<space>
+"nnoremap <leader>rg :Rgenerate<space>
+"nnoremap <leader>rgc :Rgenerate controller<space>
+"nnoremap <leader>rgm :Rgenerate model<space>
+"nnoremap <leader>rgd :Rgenerate migration<space>
+"nnoremap <leader>rgs :Rgenerate scaffold<space>
+"nnoremap <leader>rgt :Rgenerate task<space>
+"nnoremap <leader>rgr :Rgenerate resource<space>
 
-nnoremap <leader>rdc :Rdestroy controller<space>
-nnoremap <leader>rdmo :Rdestroy model<space>
-nnoremap <leader>rdd :Rdestroy migration<space>
-nnoremap <leader>rds :Rdestroy scaffold<space>
-nnoremap <leader>rdro :Rdestroy resource<space>
-nnoremap <leader>rdt :Rdestroy task<space>
+"nnoremap <leader>rdc :Rdestroy controller<space>
+"nnoremap <leader>rdmo :Rdestroy model<space>
+"nnoremap <leader>rdd :Rdestroy migration<space>
+"nnoremap <leader>rds :Rdestroy scaffold<space>
+"nnoremap <leader>rdro :Rdestroy resource<space>
+"nnoremap <leader>rdt :Rdestroy task<space>
 
 " Unite
 nmap , [unite]
