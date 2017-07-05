@@ -219,7 +219,7 @@ let g:cssColorVimDoNotMessMytime = 1
 
 "Starify settings
 let g:startify_custom_footer =
-      \ map(split(system('tips | cowsay here comes the mighty weapon'), '\n'), '"   ". v:val') + ['']
+      \ map(split(system('fortune | cowsay -f calvin'), '\n'), '"   ". v:val') + ['']
 let g:startify_custom_header= [
       \ ' _      _   _                 _ _   ',
       \ '| |    | | ( )               | | | ',
