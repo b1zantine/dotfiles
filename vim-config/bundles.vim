@@ -144,7 +144,8 @@ NeoBundle 'cmather/vim-meteor-snippets'
 "NeoBundle 'shime/vim-livedown'
 
 NeoBundle 'walm/jshint.vim'
-NeoBundle 'tomlion/vim-solidity'
+"NeoBundle 'tomlion/vim-solidity'
+NeoBundle 'rust-lang/rust.vim'
 "NeoBundle "ryanoasis/vim-devicons"                 "icons for files and libraries
 
 NeoBundleCheck                                     "Installation check.
