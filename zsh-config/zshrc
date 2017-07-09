@@ -129,3 +129,7 @@ export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
 export CMAKE_PREFIX_PATH=~/anaconda2
 
 export PATH=~/.npm-global/bin:$PATH
+
+# Nordic utils
+export PATH=~/nrf52840/nrfjprog:$PATH
+export PATH=~/nrf52840/mergehex:$PATH
