@@ -249,7 +249,12 @@ let g:nerdtree_tabs_autoclose = 1
 let g:nerdtree_tabs_synchronize_view = 1
 let g:nerdtree_tabs_synchronize_focus = 1
 let g:nerdtree_tabs_focus_on_files = 1
-autocmd VimEnter * NERDTree
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+autocmd VimEnter * call StartUp() "loads nerdtree only if vim is started with arguments
 "autocmd VimEnter * NERDTreeMirror
 "autocmd VimEnter * NERDTreeMirrorOpen
 "autocmd VimEnter * NERDTreeTabsOpen
