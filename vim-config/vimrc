@@ -1,6 +1,6 @@
 set viminfo='100,n$HOME/.vim/files/info/viminfo'
 
-let g:clang_library_path='/usr/lib/llvm-3.4/lib'
+let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
 " 
 if has('vim_starting')
   set nocompatible               " Be iMproved
