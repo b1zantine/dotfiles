@@ -16,9 +16,9 @@ nnoremap <leader>ev :tabe ~/dotfiles/vim-config/vimrc<CR>
 nnoremap <leader>ez :tabe ~/dotfiles/zsh-config/zshrc<CR>
 nnoremap <leader>so :so %<CR>
 nnoremap <leader>p :set paste! <CR>
-nnoremap <leader>s :%s/
-nnoremap <C-s> :w<CR>
+nnoremap <leader>sr :%s/
 nnoremap <Leader>g gg=G<bar>gi<Esc>
+noremap <leader>s :update<CR>
 inoremap jk <Esc>
 vnoremap jk <Esc>
 nnoremap j gj
@@ -41,6 +41,8 @@ nnoremap <C-t> :tabe<cr>:CtrlP<cr>
 vmap <C-c> "+y
 nmap <C-a> ggVG
 vmap <C-x> dd
+
+inoremap <C-o> <ESC>o
 
 nnoremap <Leader>ut :UndotreeToggle<cr>
 nnoremap <Leader>tb :TagbarToggle<cr>
