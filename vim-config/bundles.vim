@@ -106,8 +106,8 @@ NeoBundle 'christoomey/vim-tmux-navigator'         "to navigate between tmux win
 NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'mattn/webapi-vim'
 NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
-NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+"NeoBundle 'FuzzyFinder'
+"NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
 
 "new plugins have to explore
 "NeoBundle 'junegunn/vim-easy-align'
