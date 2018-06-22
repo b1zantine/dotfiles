@@ -1,6 +1,5 @@
 #source ~/dotfiles/zsh-config/ssh.zsh
 
-
 alias amzlin="ssh -i ~/keys/sudar ec2-user@13.127.44.11"
 alias yad="ssh uecb1d746ae1f59d636d5.ant.amazon.com"
 alias cdev="ssh sarasuda.aka.corp.amazon.com"
