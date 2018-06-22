@@ -4,13 +4,13 @@
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'Shougo/vimshell.vim'
 "NeoBundle 'Shougo/vimfiler.vim'
 "NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/unite-outline'
 "NeoBundle 'Shougo/neomru.vim'
 
-NeoBundle 'Shougo/vimproc.vim', {
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/vimproc.vim', { 
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
 \     'cygwin' : 'make -f make_cygwin.mak',
@@ -18,7 +18,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'linux' : 'make',
 \     'unix' : 'gmake',
 \    },
-\ }
+\ }                                               "Dependency for vimshell
 
 "tpope's plugins
 NeoBundle 'tpope/vim-fugitive'                     "git inside vim
@@ -52,10 +52,10 @@ NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "NeoBundle 'junegunn/goyo.vim'                      "edit in without any distraction
 NeoBundle 'sickill/vim-pasta'
 
-"NeoBundle "spolu/dwm.vim"                         "Window Tile manager
+"NeoBundle 'spolu/dwm.vim'                         "Window Tile manager
 NeoBundle "mbbill/undotree"                        "Undo tree that help while undoing things
 NeoBundle "mhinz/vim-startify"                     "keeps histroy of previously opened files
-"NeoBundle 'Valloric/YouCompleteMe'                "replaced with neocomplete
+NeoBundle 'Valloric/YouCompleteMe'                "replaced with neocomplete
 NeoBundle 'chriskempson/base16-vim'                "Colors to vim
 NeoBundle 'matze/vim-move'                         "<A-k>   Move current line/selection up,  <A-j>   Move current line/selection down
 
@@ -66,6 +66,7 @@ NeoBundle 'matze/vim-move'                         "<A-k>   Move current line/se
 NeoBundle 'nelstrom/vim-markdown-folding'
 
 NeoBundle 'Rip-Rip/clang_complete'
+"NeoBundle 'davidhalter/jedi-vim'                  "auto completion for python based on jedi
 NeoBundle "MarcWeber/vim-addon-mw-utils"
 NeoBundle "tomtom/tlib_vim"
 
@@ -78,7 +79,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'honza/vim-snippets'                      " Snippets
 NeoBundle 'bonsaiben/bootstrap-snippets'            " Boottrap Snippets
-NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'pangloss/vim-javascript'                 " Dependency for vim-jsx
+NeoBundle 'mxw/vim-jsx'
 NeoBundle "garbas/vim-snipmate"
 NeoBundle "gregsexton/MatchTag"
 
@@ -138,7 +140,7 @@ NeoBundle 'wellle/targets.vim'
 "NeoBundle 'ap/vim-css-color'
 NeoBundle 'gorodinskiy/vim-coloresque.git'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'cmather/vim-meteor-snippets'
+"NeoBundle 'cmather/vim-meteor-snippets'
 "NeoBundle 'whatyouhide/vim-gotham'
 "NeoBundle 'ryanss/vim-hackernews'
 "NeoBundle 'shime/vim-livedown'
@@ -146,6 +148,6 @@ NeoBundle 'cmather/vim-meteor-snippets'
 NeoBundle 'walm/jshint.vim'
 "NeoBundle 'tomlion/vim-solidity'
 NeoBundle 'rust-lang/rust.vim'
-"NeoBundle "ryanoasis/vim-devicons"                 "icons for files and libraries
+"NeoBundle 'ryanoasis/vim-devicons'                 "icons for files and libraries
 
 NeoBundleCheck                                     "Installation check.

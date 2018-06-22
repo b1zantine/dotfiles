@@ -1,7 +1,7 @@
 set viminfo='100,n$HOME/.vim/files/info/viminfo'
 
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
-" 
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -241,24 +241,34 @@ let g:startify_change_to_dir       = 0
 let g:EasyMotion_leader_key = '<Leader><Leader>'
 
 "Nerdtree settings
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_smart_startup_focus = 1
-let g:nerdtree_tabs_open_on_new_tab = 1
+"let g:nerdtree_tabs_open_on_console_startup=1
+"let g:nerdtree_tabs_smart_startup_focus = 1
+"let g:nerdtree_tabs_open_on_new_tab= 1
 let g:nerdtree_tabs_meaningful_tab_names = 1
 let g:nerdtree_tabs_autoclose = 1
 let g:nerdtree_tabs_synchronize_view = 1
 let g:nerdtree_tabs_synchronize_focus = 1
 let g:nerdtree_tabs_focus_on_files = 1
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
-autocmd VimEnter * call StartUp() "loads nerdtree only if vim is started with arguments
+"function! StartUp()
+    "if 0 == argc()
+      "NERDTree
+    "endif
+"endfunction
+"autocmd VimEnter * call StartUp() "loads nerdtree only if vim is started with arguments
+autocmd VimEnter * if !argc() | NERDTree | endif
 "autocmd VimEnter * NERDTreeMirror
 "autocmd VimEnter * NERDTreeMirrorOpen
 "autocmd VimEnter * NERDTreeTabsOpen
-autocmd VimEnter * wincmd p
+autocmd VimEnter * wincmd p       "This keeps the cursor in the main window rather than the NERDTree window
+
+"Small workaround for freezing caused by NERDTree
+function! IsNerdTreeEnabled()
+    return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+endfunction
+
+"autocmd BufWinLeave * if winnr() == winnr('$') | NERDTreeClose | endif
+
+autocmd BufWinLeave * if IsNerdTreeEnabled() && winnr() == winnr('$') | NERDTreeToggle | endif
 
 "vimfiler settings
 "let g:vimfiler_as_default_explorer = 1
@@ -334,7 +344,7 @@ let g:vim_markdown_folding_disabled=1
 "let g:CoffeeAutoTagFile=<filename>       " Name of the generated tag file (Default: ./tags)
 "let g:CoffeeAutoTagIncludeVars= 1  " Includes variables (Default: 0 [false])
 "let g:CoffeeAutoTagTagRelative= 1  " Sets file names to the relative path from the tag file location to the tag file location (Default: 1 [true])
-let g:mustache_abbreviations = 1
+
 if has("autocmd")
   au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
   au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
@@ -348,4 +358,6 @@ let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
+
+let g:jsx_ext_required = 0
 set viminfo='100,n$HOME/.vim/files/info/viminfo

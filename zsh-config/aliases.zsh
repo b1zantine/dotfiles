@@ -1,5 +1,10 @@
 #source ~/dotfiles/zsh-config/ssh.zsh
 
+
+alias amzlin="ssh -i ~/keys/sudar ec2-user@13.127.44.11"
+alias yad="ssh uecb1d746ae1f59d636d5.ant.amazon.com"
+alias cdev="ssh sarasuda.aka.corp.amazon.com"
+
 # reboot, hibernate and shutdown
 alias brb='cowsay "i will be waiting buddy" && sudo pm-hibernate'
 alias bye='cowsay "Bye bye buddy" && sudo poweroff'
@@ -26,8 +31,8 @@ alias autoremove='sudo apt-get autoremove'
 alias purge='sudo apt-get purge'
 
 # open config files
-alias zrc='~/dotfiles/ && vim zsh-config/zshrc'
-alias vrc='~/dotfiles/ && vim vim-config/vimrc'
+alias zrc='vim ~/.zshrc'
+alias vrc='vim ~/.vimrc'
 alias tc='~/dotfiles/ && vim tmux/tmux.conf'
 alias ohmy='cd ~/dotfiles/oh-my-zsh && vim'
 alias dot='cd ~/dotfiles/ && vim'
