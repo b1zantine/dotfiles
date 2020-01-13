@@ -30,6 +30,7 @@ set -x PHANTOMJS_BIN "/usr/local/bin/phantomjs"
 ###### ---- PATHS  ----
 set -x PATH $PATH $HOME/bin /usr/bin /usr/local/bin /usr/local/sbin
 set -x PATH $PATH /usr/local/opt/python/libexec/bin
+set -x PATH $PATH /usr/local/nvim/bin
 
 # BuilderToolbox 
 set -x PATH $PATH $HOME/.toolbox/bin
