@@ -18,6 +18,8 @@ alias vim="/usr/local/nvim/bin/nvim"
 # Default Editor
 set -x EDITOR /usr/local/nvim/bin/nvim
 
+set -x LC_ALL en_US.UTF-8
+
 # For solving git signing issue
 set -x GPG_TTY (tty)
 
