@@ -3,7 +3,8 @@ alias gst="git status"
 alias gcb="git checkout -b"
 alias gl="git log --oneline"
 alias gaa="git add -A"
-
+alias gpom="git push origin mainline"
+alias gcm="git commit -m"
 
 alias dot="cd ~/dotfiles/ && nvim"
 alias vim="/usr/local/bin/nvim"
