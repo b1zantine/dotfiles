@@ -113,7 +113,7 @@ call denite#custom#var('file/rec', 'command',
       \ ['rg', '--files', '--vimgrep'])
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
-      \ ['--hidden', '--vimgrep', '--smart-case'])
+      \ ['--vimgrep', '--smart-case'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
@@ -164,7 +164,7 @@ nnoremap <leader><Space>/ :<C-u>DeniteBufferDir -start-filter grep:::!<CR>
 nnoremap <leader>d :<C-u>DeniteBufferDir file/rec -start-filter<CR>
 nnoremap <leader>r :<C-u>Denite -resume -cursor-pos=+1<CR>
 nnoremap <leader><C-r> :<C-u>Denite register:.<CR>
-nnoremap <leader>g :<C-u>Denite gitstatus<CR>
+"nnoremap <leader>g :<C-u>Denite gitstatus<CR>
 
 
 "Fugitive 

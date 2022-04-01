@@ -115,7 +115,6 @@ let g:startify_change_to_dir       = 0
 
 let g:startify_bookmarks = [ 
     \ '~/dotfiles',
-    \ '~/rustcode/hello_cargo',
     \ ]
 
 "Nerdtree settings
@@ -158,8 +157,8 @@ let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '☢'
 
 "deoplete
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/opt/python/libexec/bin/python' " Required for deoplete in mac mojave
+"let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3' " Required for deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']

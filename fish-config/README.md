@@ -10,10 +10,7 @@ chsh -s /usr/local/bin/fish
 
 ```
 
-2. Install omf
+2. Install omf themes
 ```
-curl -L https://get.oh-my.fish | fish
-
-omf install bobthefish
-omf install bass
+omf install batman
 ```
