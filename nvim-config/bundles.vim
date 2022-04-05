@@ -1,6 +1,6 @@
-call dein#add('Shougo/deoplete.nvim')                   "autocomplete
-call dein#add('deoplete-plugins/deoplete-jedi')
-call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
+"call dein#add('Shougo/deoplete.nvim')                   "autocomplete
+"call dein#add('deoplete-plugins/deoplete-jedi')
+"call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
 
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
@@ -49,4 +49,6 @@ call dein#add('airblade/vim-gitgutter')
 "call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-surround')
 "call dein#add('tpope/vim-obsession')                    "saves current state of Vim: window positions, open folds
+
+call dein#add('github/copilot.vim')
 

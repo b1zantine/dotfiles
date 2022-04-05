@@ -185,9 +185,11 @@ autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
 "LanguageClient configuration
 " See https://github.com/autozimu/LanguageClient-neovim
+" Language Server and clients for different langs - https://langserver.org/ 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['/usr/local/bin/pyls'],
+    \ 'go': ['~/go/bin/gopls'],
     \ }
 
 " Don't show inline errors.

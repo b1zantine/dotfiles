@@ -21,7 +21,7 @@ nnoremap <leader>ef :tabe ~/dotfiles/fish-config/config.fish<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 nnoremap <leader>p :set paste! <CR>
 nnoremap <leader>sr :%s/
-nnoremap <Leader>g gg=G<bar>gi<Esc>             "jump to last edited line
+nnoremap <leader>g gg=G<bar>gi<Esc>             "jump to last edited line
 "noremap <leader>s :update<CR>
 inoremap jk <Esc>
 vnoremap jk <Esc>
@@ -47,6 +47,14 @@ nmap <C-a> ggVG
 vmap <C-x> dd
 
 inoremap <C-o> <ESC>o
+
+" Moving current line and selected lines
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
 
 nnoremap <Leader>ut :UndotreeToggle<cr>
 nnoremap <Leader>tb :TagbarToggle<cr>

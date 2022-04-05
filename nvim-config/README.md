@@ -31,6 +31,11 @@ brew install ripgrep
   - Follow the instructions [here](https://github.com/powerline/fonts) to install the fonts.
   - In Iterm2, under profiles, pick the font "Droid Sans Mono for Powerline" 
 
+7. Install additional dependencies
+```
+pip3 install --user jedi --upgrade #needed for deoplete
+```
+
 To manually install dein plugins, use this inside nvim
 ```
 :call dein#install()
