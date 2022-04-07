@@ -2,11 +2,10 @@
 "call dein#add('deoplete-plugins/deoplete-jedi')
 "call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
 
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('honza/vim-snippets')
+"call dein#add('Shougo/neosnippet')
+"call dein#add('Shougo/neosnippet-snippets')
+"call dein#add('honza/vim-snippets')
 
-call dein#add('vim-syntastic/syntastic')                "to highlight syntax
 
 call dein#add('Shougo/denite.nvim')                     "alternative for unite.vim
 "call dein#add('neoclide/denite-git')
@@ -16,12 +15,17 @@ call dein#add('junegunn/fzf', { 'path': '~/.fzf/', 'build': './install --all' })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
 "LanguageClient
-call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'rev': 'next' })
+"call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'rev': 'next' })
+call dein#add('dense-analysis/ale')
 
 "call dein#add('easymotion/vim-easymotion')
 
 "lang
-call dein#add('rust-lang/rust.vim')
+"call dein#add('vim-syntastic/syntastic')                "syntax checker
+"the following languages are supported by syntastic, hence adding these as per
+"the syntastic FAQ docs
+"call dein#add('rust-lang/rust.vim')
+"call dein#add('Quramy/tsuquyomi')       "typescript support
 
 "color schemes
 call dein#add('flazz/vim-colorschemes')
@@ -42,7 +46,7 @@ call dein#add('vim-airline/vim-airline-themes')
 call dein#add('scrooloose/nerdcommenter')               "auto-commenting based on filetype               
 call dein#add('mbbill/undotree')
 call dein#add('majutsushi/tagbar')
-"call dein#add('ctrlpvim/ctrlp.vim')
+"call dein#add('ctrlpvim/ctrlp.vim')                    "obselete since we use denite instead
 
 
 call dein#add('airblade/vim-gitgutter')
@@ -50,5 +54,5 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('tpope/vim-surround')
 "call dein#add('tpope/vim-obsession')                    "saves current state of Vim: window positions, open folds
 
-call dein#add('github/copilot.vim')
+"call dein#add('github/copilot.vim')
 

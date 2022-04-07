@@ -17,10 +17,11 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 sh ./installer.sh ~/.cache/dein
 ```
 
-4. Install ctags
+4. Install Universal-ctags (not exuberant-ctags)
 ```
-brew install ctags
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 ```
+Note: Tagbar works better with universal-ctags without any additional setup
 
 5. Install ripgrep
 ```
@@ -41,3 +42,9 @@ To manually install dein plugins, use this inside nvim
 :call dein#install()
 ```
 
+8. Language Server & Client setup
+  1. Rust - Install rustup and rls component `rustup component add rls`
+  2. Go - Install `gopls`
+  3. Python - Install 'pyls"
+  4. JS / TS/ TSX/ JSX - Install `typescript-language-server` and use correct node version. Refer the `init.vim` config file.
+  5. Docker - Install `npm install -g dockerfile-language-server-nodejs`

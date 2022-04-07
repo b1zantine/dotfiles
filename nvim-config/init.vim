@@ -1,6 +1,7 @@
 if &compatible
   set nocompatible
 endif
+
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -83,7 +84,7 @@ colorscheme plastic
 set background=dark
 set termguicolors
 
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
 
 "include key bindings
 source ~/dotfiles/nvim-config/key-bindings.vim
@@ -143,18 +144,38 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#syntastic#enabled= 1
+"let g:airline#extensions#syntastic#enabled= 1
 let g:airline#extensions#tagbar#enable= 1
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#unite#enable= 1
 " let g:airline#extensions#hunks#enable= 1
 " let g:airline#extensions#tmuxline#enabled = 0
 
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#indicator_checking = "\uf110"
+let g:airline#extensions#ale#indicator_infos = "\uf129"
+let g:airline#extensions#ale#indicator_warnings = "\uf071"
+let g:airline#extensions#ale#indicator_errors = "\uf05e"
+let g:airline#extensions#ale#indicator_ok = "\uf00c"
+
 "Syntastic customization
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '✠'
-let g:syntastic_warning_symbol = '∆'
-let g:syntastic_style_warning_symbol = '☢'
+"doesn't support fish, so point it to any other shell like sh, zsh, bash
+"let g:syntastic_shell = '/bin/zsh'
+"let g:syntastic_python_python_exe = '/usr/bin/python3'
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_style_error_symbol = '✠'
+"let g:syntastic_warning_symbol = '∆'
+"let g:syntastic_style_warning_symbol = '☢'
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+"integrating tsuquyomi with syntastic
+"let g:tsuquyomi_disable_quickfix = 1
+"let g:syntastic_typescript_checkers = ['tsuquyomi']
+
 
 "deoplete
 "let g:python_host_prog = '/usr/local/bin/python2'
@@ -167,36 +188,59 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 " Enable snipMate compatibility feature.
 " let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets'
-
-
-" ctrlp: Ignore dirs and files includingrust's target directories
-"let g:ctrlp_custom_ignore = {
-      "\ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules\|\.yardoc\|public\/images\|public\/system\|data\|log\|target\|tmp$',
-      "\ 'file': '\v\.(exe|so|dll)$',
-      "\ }
+"let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets'
 
 
 " Rust format on save:
-let g:rustfmt_autosave = 1
+"let g:rustfmt_autosave = 1
 
 " Run gofmt on save
-autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+"autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
 "LanguageClient configuration
 " See https://github.com/autozimu/LanguageClient-neovim
 " Language Server and clients for different langs - https://langserver.org/ 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'go': ['~/go/bin/gopls'],
-    \ }
+" For TS and JS, install https://github.com/typescript-language-server/typescript-language-server
+"let g:LanguageClient_serverCommands = {
+    "\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    "\ 'python': ['/usr/local/bin/pyls'],
+    "\ 'go': ['~/go/bin/gopls'],
+    "\ 'typescript': ['fish', '-c', 'node -v && ~/.nvm/versions/node/v16.14.2/bin/typescript-language-server --stdio'],
+    "\ 'javascript': ['fish', '-c', 'node -v && ~/.nvm/versions/node/v16.14.2/bin/typescript-language-server --stdio'],
+    "\ 'typescript.tsx': ['fish', '-c', 'node -v && ~/.nvm/versions/node/v16.14.2/bin/typescript-language-server --stdio'],
+    "\ 'javascript.tsx': ['fish', '-c', 'node -v && ~/.nvm/versions/node/v16.14.2/bin/typescript-language-server --stdio'],
+    "\ 'docker': ['fish', '-c', 'node -v && ~/.nvm/versions/node/v16.14.2/bin/docker-langserver --stdio'],
+    "\ }
 
 " Don't show inline errors.
-let g:LanguageClient_useVirtualText='CodeLens'
+"let g:LanguageClient_useVirtualText='CodeLens'
 
 " Used for debugging LanguageClient
-" let $RUST_BACKTRACE = 1
-" let g:LanguageClient_loggingLevel = 'INFO'
-" let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
-" let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+ "let $RUST_BACKTRACE = 1
+ "let g:LanguageClient_loggingLevel = 'INFO'
+ "let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
+ "let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+ 
+
+" Plugin config to add before loading the plugins itself
+
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+let g:ale_floating_preview = 1
+let g:ale_hover_to_floating_preview = 1
+let g:ale_detail_to_floating_preview = 1
+let g:ale_lsp_suggestions = 1
+
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '∆'
+
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'rust': ['rustfmt', 'rls'],
+    \ 'python': ['autopep8'],
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
+\}
+
+

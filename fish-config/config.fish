@@ -7,6 +7,7 @@ alias gpom="git push origin mainline"
 alias gcm="git commit -m"
 
 alias dot="cd ~/dotfiles/ && nvim"
+alias code="cd ~/Code/"
 alias vim="/usr/local/bin/nvim"
 
 # Default Editor

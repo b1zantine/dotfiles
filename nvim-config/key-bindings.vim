@@ -8,12 +8,10 @@ nnoremap ; :
 au FocusGained,BufEnter * :silent! !          "load changes made out of vim
 au FocusLost,WinLeave * :silent! noautocmd w  "autosave
 
-nnoremap <tab> %
-vnoremap <tab> %
 nnoremap <leader>qt :tabonly<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>q :q<CR>
-nnoremap Q :q!<CR>                             "avoid entering ex mode
+nnoremap Q :q!<CR> 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
 nnoremap <leader>ev :tabe ~/dotfiles/nvim-config/init.vim<CR>
@@ -21,7 +19,8 @@ nnoremap <leader>ef :tabe ~/dotfiles/fish-config/config.fish<CR>
 nnoremap <leader>so :so $MYVIMRC<CR>
 nnoremap <leader>p :set paste! <CR>
 nnoremap <leader>sr :%s/
-nnoremap <leader>g gg=G<bar>gi<Esc>             "jump to last edited line
+" jump to last edited line
+nnoremap <leader>g gg=G<bar>gi<Esc>
 "noremap <leader>s :update<CR>
 inoremap jk <Esc>
 vnoremap jk <Esc>
@@ -29,18 +28,25 @@ nnoremap j gj
 nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
+
+nnoremap <tab> %
+vnoremap <tab> %
+"indents the current line using tabs
+vnoremap <Tab> >
+vnoremap <S-Tab> <
+" move between tabs
 nnoremap > :tabnext<CR>
 nnoremap < :tabprevious<CR>
-vmap <Tab> >
-vmap <S-Tab> <
-nnoremap <Leader>te :tabe 
-nnoremap F :bnext<CR>
-nnoremap B :bprevious<CR>
+nnoremap <Leader>te :tabe
+" move between buffers in a tab. Press Alt+Shift+{<, >} keys
+nnoremap <M->> :bnext<CR>
+nnoremap <M-<> :bprevious<CR>
+" navigate between different panes
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-"nnoremap <C-t> :tabe<cr>:CtrlP<cr>
+
 " Copy to 'clipboard registry'
 vmap <C-c> "+y
 nmap <C-a> ggVG
@@ -79,34 +85,44 @@ nnoremap <leader>nt :NERDTree<CR>
 
 "neosnippet
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <expr><TAB>
-\ pumvisible() ? "\<C-n>" :
-\ neosnippet#expandable_or_jumpable() ?
-\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"inoremap <expr><TAB>
+"\ pumvisible() ? "\<C-n>" :
+"\ neosnippet#expandable_or_jumpable() ?
+"\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+inoremap <silent><expr> <Tab>
+        \ pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+""" ale key bindings
+nmap <silent> ep <Plug>(ale_previous_wrap)
+nmap <silent> en <Plug>(ale_next_wrap)
+nmap <silent> K <Plug>(ale_hover)
+nmap <silent> gd <Plug>(ale_go_to_definition_in_tab)
+nmap <silent> fr <Plug>(ale_find_references)
+
 """ LanguageClient bindings
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <leader>c :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<CR>
-nnoremap <silent> pc :pclose<CR>  "close all preview windows. useful when using LC
+"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+"nnoremap <silent> <leader>c :call LanguageClient#textDocument_codeAction()<CR>
+"nnoremap <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<CR>
+"nnoremap <silent> pc :pclose<CR>  "close all preview windows. useful when using LC
 
 """ Easymotion
 map <leader>m <Plug>(easymotion-prefix)
@@ -164,6 +180,9 @@ function! s:denite_filter_settings() abort
   nmap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
 endfunction
 
+"nnoremap <C-t> :tabe<cr>:CtrlP<cr>
+" open new tab with denite window opened
+nnoremap <C-t> :tabe<CR>:<C-u>Denite file/rec -start-filter<CR> 
 nnoremap <C-p> :<C-u>Denite file/rec -start-filter<CR>
 nnoremap <leader>s :<C-u>Denite buffer<CR>
 nnoremap <leader>8 :<C-u>DeniteCursorWord grep:.<CR>
