@@ -134,7 +134,7 @@ call denite#custom#option('default', {
       \ })
 
 call denite#custom#var('file/rec', 'command',
-      \ ['rg', '--files', '--vimgrep'])
+      \ ['rg', '--files', '--vimgrep', '--hidden', '--glob', '!.git'])
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
       \ ['--vimgrep', '--smart-case'])
@@ -145,6 +145,9 @@ call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#option('_', 'max_dynamic_update_candidates', 100000)
 call denite#custom#option('_', {
       \ 'split': 'floating',
+      \ 'floating-zindex': 1,
+      \ 'floating-border': '-',
+      \ 'floating-preview': v:true,
       \ 'highlight_matched_char': 'Underlined',
       \ 'highlight_matched_range': 'NormalFloat',
       \ 'wincol': &columns / 6,
@@ -191,7 +194,7 @@ nnoremap <leader><Space>/ :<C-u>DeniteBufferDir -start-filter grep:::!<CR>
 nnoremap <leader>d :<C-u>DeniteBufferDir file/rec -start-filter<CR>
 nnoremap <leader>r :<C-u>Denite -resume -cursor-pos=+1<CR>
 nnoremap <leader><C-r> :<C-u>Denite register:.<CR>
-"nnoremap <leader>g :<C-u>Denite gitstatus<CR>
+nnoremap <leader>gs :<C-u>Denite gitstatus<CR>
 
 
 "Fugitive 

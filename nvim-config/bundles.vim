@@ -56,3 +56,6 @@ call dein#add('tpope/vim-surround')
 
 "call dein#add('github/copilot.vim')
 
+"Plugins to explore
+"https://github.com/kevinhwang91/rnvimr
+"https://github.com/voldikss/vim-floaterm

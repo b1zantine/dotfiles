@@ -179,10 +179,10 @@ let g:airline#extensions#ale#indicator_ok = "\uf00c"
 
 "deoplete
 "let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3' " Required for deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+"let g:python3_host_prog = '/usr/bin/python3' " Required for deoplete
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+"let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 "neocomplete
 " Enable snipMate compatibility feature.
@@ -222,25 +222,31 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
  "let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
  
 
-" Plugin config to add before loading the plugins itself
+ " Plugin config to add before loading the plugins itself
 
-set omnifunc=ale#completion#OmniFunc
-let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
-let g:ale_floating_preview = 1
-let g:ale_hover_to_floating_preview = 1
-let g:ale_detail_to_floating_preview = 1
-let g:ale_lsp_suggestions = 1
+ set omnifunc=ale#completion#OmniFunc
+ let g:ale_completion_enabled = 1
+ let g:ale_completion_autoimport = 1
+ let g:ale_floating_preview = 1
+ let g:ale_hover_to_floating_preview = 1
+ let g:ale_detail_to_floating_preview = 1
+ let g:ale_lsp_suggestions = 1
 
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '∆'
+let g:ale_sign_error = "🐞"
+let g:ale_sign_warning = "⚠️"
+let g:ale_sign_info = "ℹ"
 
-let g:ale_fixers = {
-    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'rust': ['rustfmt', 'rls'],
-    \ 'python': ['autopep8'],
-    \ 'javascript': ['eslint'],
-    \ 'typescript': ['eslint'],
-\}
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = "🔥 "
 
+ let g:ale_fix_on_save = 1
+ let g:ale_fixers = {
+       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+       \ 'rust': ['rustfmt', 'rls'],
+       \ 'python': ['autopep8'],
+       \ 'javascript': ['prettier', 'eslint'],
+       \ 'typescript': ['prettier', 'eslint'],
+       \ 'css': ['prettier'],
+       \ 'json': ['prettier'],
+       \}
 
