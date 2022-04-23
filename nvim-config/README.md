@@ -1,6 +1,7 @@
 1. Create a symlink
 
 ```
+mkdir -p ~/.config/nvim/
 ln -s ~/dotfiles/nvim-config/init.vim ~/.config/nvim/init.vim
 ```
 

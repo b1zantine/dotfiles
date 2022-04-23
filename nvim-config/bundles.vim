@@ -43,7 +43,7 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 "call dein#add('Zuckonit/vim-airline-tomato')
 
-call dein#add('scrooloose/nerdcommenter')               "auto-commenting based on filetype               
+call dein#add('scrooloose/nerdcommenter')               "auto-commenting based on filetype
 call dein#add('mbbill/undotree')
 call dein#add('majutsushi/tagbar')
 "call dein#add('ctrlpvim/ctrlp.vim')                    "obselete since we use denite instead
@@ -59,3 +59,4 @@ call dein#add('tpope/vim-surround')
 "Plugins to explore
 "https://github.com/kevinhwang91/rnvimr
 "https://github.com/voldikss/vim-floaterm
+"https://github.com/iamcco/markdown-preview.nvim
