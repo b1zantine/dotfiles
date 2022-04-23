@@ -9,7 +9,7 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  
+
   source ~/dotfiles/nvim-config/bundles.vim
 
   call dein#end()
@@ -29,7 +29,7 @@ set number
 set encoding=utf8
 
 filetype plugin on
-filetype indent on 
+filetype indent on
 
 set nowrap
 set noswapfile
@@ -47,17 +47,21 @@ set smarttab
 set autoindent
 set copyindent
 set shiftround
-set tabstop=2 shiftwidth=2 softtabstop=2
+set tabstop=4 shiftwidth=4 softtabstop=4
 set foldmethod=indent
 set smartindent
 set foldlevel=99
+" jump to a specific tab using "Number+," key combo
+for i in range(1, 9)
+  exec 'nnoremap ' .. i .. ', ' .. i .. 'gt'
+endfor
 
 "system related settings
 set mouse=a
 set spell
 set cursorline
 set history=1000
-set clipboard=unnamed     
+set clipboard=unnamed
 set backspace=indent,eol,start              " Make backspace behave normally.
 set autowriteall
 set visualbell
@@ -80,11 +84,11 @@ set splitbelow
 set splitright
 
 " Color Scheme settings
-colorscheme plastic
 set background=dark
+colorscheme molokai
 set termguicolors
 
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
 
 "include key bindings
 source ~/dotfiles/nvim-config/key-bindings.vim
@@ -93,7 +97,16 @@ source ~/dotfiles/nvim-config/key-bindings.vim
 """""""""""""""""""""""""
 """" Plugin settings """"
 """""""""""""""""""""""""
-j
+
+" Tagbar Bin path
+" system(..) returns with a newline character at end. This trims it.
+let uname = substitute(system('uname -m'), '\n\+$', '', '')
+" needed this for homebrew in apple silicon
+if uname == 'arm64'
+  let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
+endif
+
+
 "Starify settings
 " let g:startify_custom_footer =
 "       \ map(split(system('fortune | cowsay -f calvin'), '\n'), '"   ". v:val') + ['']
@@ -103,7 +116,7 @@ let g:startify_custom_header= [
       \ '| | ___| |_|/ ___   _ __ ___ | | | ',
       \ '| |/ _ \ __| / __| |  __/ _ \| | |  ',
       \ '| |  __/ |_  \__ \ | | | (_) | | | ',
-      \ '|_|\___|\__| |___/ |_|  \___/|_|_| ', 
+      \ '|_|\___|\__| |___/ |_|  \___/|_|_| ',
       \ '',
       \ '',
       \ ]
@@ -114,7 +127,9 @@ let g:startify_enable_special      = 0
 let g:startify_files_number        = 5
 let g:startify_change_to_dir       = 0
 
-let g:startify_bookmarks = [ 
+let g:startify_bookmarks = [
+    \ '~/workspace/avi-dev',
+    \ '~/projects',
     \ '~/dotfiles',
     \ ]
 
@@ -139,16 +154,22 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='luna'
 let g:airline_solarized_bg='dark'
-let g:airline#extensions#branch#enabled = 1
+
+" airline symbols
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline#extensions#branch#empty_message = ''
-"let g:airline#extensions#syntastic#enabled= 1
+let g:airline_symbols.branch = ''
+
+let g:airline#extensions#branch#enabled = 1
+"let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#hunks#enabled= 1
 let g:airline#extensions#tagbar#enable= 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+"let g:airline#extensions#syntastic#enabled= 1
 " let g:airline#extensions#unite#enable= 1
-" let g:airline#extensions#hunks#enable= 1
 " let g:airline#extensions#tmuxline#enabled = 0
 
 let g:airline#extensions#ale#enabled = 1
@@ -199,7 +220,7 @@ let g:airline#extensions#ale#indicator_ok = "\uf00c"
 
 "LanguageClient configuration
 " See https://github.com/autozimu/LanguageClient-neovim
-" Language Server and clients for different langs - https://langserver.org/ 
+" Language Server and clients for different langs - https://langserver.org/
 " For TS and JS, install https://github.com/typescript-language-server/typescript-language-server
 "let g:LanguageClient_serverCommands = {
     "\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
@@ -220,10 +241,9 @@ let g:airline#extensions#ale#indicator_ok = "\uf00c"
  "let g:LanguageClient_loggingLevel = 'INFO'
  "let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
  "let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
- 
+
 
  " Plugin config to add before loading the plugins itself
-
  set omnifunc=ale#completion#OmniFunc
  let g:ale_completion_enabled = 1
  let g:ale_completion_autoimport = 1
@@ -249,4 +269,3 @@ let g:ale_virtualtext_prefix = "🔥 "
        \ 'css': ['prettier'],
        \ 'json': ['prettier'],
        \}
-

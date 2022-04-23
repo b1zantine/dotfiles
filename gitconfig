@@ -1,8 +1,8 @@
-[includeIf "gitdir:~/workspace"]
+[includeIf "gitdir:~/workspace/"]
     path = ~/.gitconfig_work
 
-[includeIf "gitdir:~/code"]
+[includeIf "gitdir:~/projects/"]
     path = ~/.gitconfig_personal
 
-[includeIf "gitdir:~/dotfiles"]
+[includeIf "gitdir:~/dotfiles/.git"]
     path = ~/.gitconfig_personal

@@ -29,7 +29,6 @@ call dein#add('dense-analysis/ale')
 
 "color schemes
 call dein#add('flazz/vim-colorschemes')
-call dein#add('flrnd/plastic.vim')
 
 "startify
 call dein#add('mhinz/vim-startify')
@@ -41,7 +40,6 @@ call dein#add('jistr/vim-nerdtree-tabs')                "nerdtree and tabs: must
 "airline
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-"call dein#add('Zuckonit/vim-airline-tomato')
 
 call dein#add('scrooloose/nerdcommenter')               "auto-commenting based on filetype
 call dein#add('mbbill/undotree')
@@ -49,12 +47,22 @@ call dein#add('majutsushi/tagbar')
 "call dein#add('ctrlpvim/ctrlp.vim')                    "obselete since we use denite instead
 
 
-call dein#add('airblade/vim-gitgutter')
+"call dein#add('airblade/vim-gitgutter')
 "call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-surround')
 "call dein#add('tpope/vim-obsession')                    "saves current state of Vim: window positions, open folds
 
+call dein#add('kyazdani42/nvim-web-devicons')
+
 "call dein#add('github/copilot.vim')
+
+call dein#add('voldikss/vim-floaterm')
+
+"telescope
+call dein#add('nvim-lua/plenary.nvim')                  "dependency for telescope and vgit
+call dein#add('nvim-telescope/telescope.nvim')
+
+call dein#add('tanvirtin/vgit.nvim')
 
 "Plugins to explore
 "https://github.com/kevinhwang91/rnvimr
