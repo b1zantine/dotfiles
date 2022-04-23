@@ -1,24 +1,24 @@
 if &compatible
-  set nocompatible
+    set nocompatible
 endif
 
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  source ~/dotfiles/nvim-config/bundles.vim
+    source ~/dotfiles/nvim-config/bundles.vim
 
-  call dein#end()
-  call dein#save_state()
+    call dein#end()
+    call dein#save_state()
 endif
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
-  call dein#install()
+    call dein#install()
 endif
 
 "setting goes here
@@ -53,7 +53,7 @@ set smartindent
 set foldlevel=99
 " jump to a specific tab using "Number+," key combo
 for i in range(1, 9)
-  exec 'nnoremap ' .. i .. ', ' .. i .. 'gt'
+    exec 'nnoremap ' .. i .. ', ' .. i .. 'gt'
 endfor
 
 "system related settings
@@ -103,7 +103,7 @@ source ~/dotfiles/nvim-config/key-bindings.vim
 let uname = substitute(system('uname -m'), '\n\+$', '', '')
 " needed this for homebrew in apple silicon
 if uname == 'arm64'
-  let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
+    let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
 endif
 
 
@@ -157,21 +157,20 @@ let g:airline_solarized_bg='dark'
 
 " airline symbols
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch = ''
 
-let g:airline#extensions#branch#enabled = 1
-"let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#hunks#enabled= 1
-let g:airline#extensions#tagbar#enable= 1
+" get branch name and set it in airline manually without using extensions
+let g:airline_section_b = printf('%s %s', "\uE0A0", gitbranch#name())
+
+"let g:airline#extensions#branch#enabled = 1
+"let g:airline#extensions#branch#empty_message = '...'
+"let g:airline#extensions#hunks#enabled= 1
+let g:airline#extensions#tagbar#enabled= 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-"let g:airline#extensions#syntastic#enabled= 1
-" let g:airline#extensions#unite#enable= 1
-" let g:airline#extensions#tmuxline#enabled = 0
-
+" airline - ale extension settings
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#ale#indicator_checking = "\uf110"
 let g:airline#extensions#ale#indicator_infos = "\uf129"

@@ -8,7 +8,6 @@
 
 
 call dein#add('Shougo/denite.nvim')                     "alternative for unite.vim
-"call dein#add('neoclide/denite-git')
 
 "Fuzzy finder
 call dein#add('junegunn/fzf', { 'path': '~/.fzf/', 'build': './install --all' })
@@ -18,7 +17,6 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 "call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'rev': 'next' })
 call dein#add('dense-analysis/ale')
 
-"call dein#add('easymotion/vim-easymotion')
 
 "lang
 "call dein#add('vim-syntastic/syntastic')                "syntax checker
@@ -37,6 +35,12 @@ call dein#add('mhinz/vim-startify')
 call dein#add('scrooloose/nerdtree')                    "alternative for default netrw
 call dein#add('jistr/vim-nerdtree-tabs')                "nerdtree and tabs: must have for nerdtree
 
+" a small plugin to read git branch info
+" This is used to display the git branch manually in airline
+" We are doing this as we are not using git extensions
+" required by airline
+call dein#add('itchyny/vim-gitbranch')
+
 "airline
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
@@ -44,19 +48,13 @@ call dein#add('vim-airline/vim-airline-themes')
 call dein#add('scrooloose/nerdcommenter')               "auto-commenting based on filetype
 call dein#add('mbbill/undotree')
 call dein#add('majutsushi/tagbar')
-"call dein#add('ctrlpvim/ctrlp.vim')                    "obselete since we use denite instead
 
-
-"call dein#add('airblade/vim-gitgutter')
-"call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-surround')
 "call dein#add('tpope/vim-obsession')                    "saves current state of Vim: window positions, open folds
 
 call dein#add('kyazdani42/nvim-web-devicons')
 
-"call dein#add('github/copilot.vim')
-
-call dein#add('voldikss/vim-floaterm')
+call dein#add('voldikss/vim-floaterm')                  " Terminal inside vim
 
 "telescope
 call dein#add('nvim-lua/plenary.nvim')                  "dependency for telescope and vgit
@@ -64,6 +62,7 @@ call dein#add('nvim-telescope/telescope.nvim')
 
 call dein#add('tanvirtin/vgit.nvim')
 
+"call dein#add('github/copilot.vim')
 "Plugins to explore
 "https://github.com/kevinhwang91/rnvimr
 "https://github.com/voldikss/vim-floaterm
