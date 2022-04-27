@@ -6,3 +6,5 @@
 
 [includeIf "gitdir:~/dotfiles/.git"]
     path = ~/.gitconfig_personal
+[init]
+	defaultBranch = main

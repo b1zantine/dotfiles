@@ -1,0 +1,78 @@
+/* Show title of unread tabs with red and italic font */
+
+:root.sidebar tab-item.unread .label-content {
+  color: red !important;
+  font-style: italic !important;
+}
+
+
+/* Add private browsing indicator per tab */
+/*
+:root.sidebar tab-item.private-browsing tab-label:before {
+  content: "🕶";
+}
+*/
+
+/* Site specific color */
+tab-item[data-current-uri^="https://github.com"] tab-item-substance {
+  background-color: #2196F3;
+}
+
+/* Active Tab color */
+
+tab-item.active tab-item-substance {
+  height: 39px !important;
+}
+tab-item.active .background {
+  background-color: #E91E63;
+}
+tab-item.active .label-content {
+  font-weight: bold;
+  font-size: 14px;
+}
+tab-item.active tab-twisty,
+tab-item.active .label-content,
+tab-item.active tab-counter {
+  color: #fff;
+}
+
+/* Apply tab colors exactly same to Firefox's native */
+:root {
+  --tab-surface-regular: var(--theme-colors-tab,
+                             var(--theme-colors-frame_inactive));
+  --tab-surface-active: var(--theme-colors-tab_selected,
+                            var(--theme-colors-toolbar,
+                                var(--browser-bg-for-header-image,
+                                    var(--tab-like-surface))));
+  --tab-surface-active-hover: var(--theme-colors-tab_selected,
+                                  var(--theme-colors-toolbar,
+                                      var(--browser-bg-for-header-image,
+                                          var(--tab-like-surface))));
+  --tab-surface-hover: rgba(255,255,255,.1) /* from https://searchfox.org/mozilla-central/rev/8d722de75886d6bffc116772a1db8854e34ee6a7/browser/themes/shared/tabs.inc.css#590 */;
+  --tab-border: var(--theme-colors-tab_background_separator,
+                    var(--theme-colors-tab_line,
+                        var(--theme-colors-tab_background_text-30,
+                            hsl(240,9%,32%) /* from https://searchfox.org/mozilla-central/rev/8d722de75886d6bffc116772a1db8854e34ee6a7/browser/themes/shared/tabs.inc.css#684 : --tab-text-regular * 0.3 opacity */)));
+  --tab-text-regular: var(--theme-colors-tab_background_text,
+                          hsl(240,9%,98%) /* from https://searchfox.org/mozilla-central/rev/8d722de75886d6bffc116772a1db8854e34ee6a7/toolkit/themes/windows/global/tabbox.css#27 */);
+  --tab-text-active: var(--theme-colors-tab_text,
+                         var(--theme-colors-toolbar_text,
+                             -moz-DialogText /* from https://searchfox.org/mozilla-central/rev/8d722de75886d6bffc116772a1db8854e34ee6a7/toolkit/themes/windows/global/tabbox.css#27 */));
+  --tabbar-bg: var(--theme-colors-frame,
+                   hsl(235,33%,19%) /* from https://searchfox.org/mozilla-central/rev/8d722de75886d6bffc116772a1db8854e34ee6a7/browser/themes/windows/browser-aero.css#59 */);
+}
+
+
+/* show separator space between root level tabs */
+tab-item[data-level="0"] {
+  margin-top: calc(var(--tab-size) / 3); /* please change this as you like */
+}
+/* cancel needless separators on exceptions */
+tab-item[data-level="0"].pinned,
+tab-item[data-level="0"].pinned + tab-item[data-level="0"],
+tab-item[data-level="0"] + tab-item[data-level="0"]:not([data-child-ids]) {
+  margin-top: 0;
+}
+
+
+
