@@ -202,9 +202,13 @@ nnoremap <leader>d :<C-u>DeniteBufferDir file/rec -start-filter<CR>
 nnoremap <leader>r :<C-u>Denite -resume -cursor-pos=+1<CR>
 nnoremap <leader><C-r> :<C-u>Denite register:.<CR>
 
-" vgit.nvim
-" Need to initialize it
+" vgit.nvim settings
 lua << EOF
+-- below config avoids vim flickering while editing
+vim.o.updatetime = 300
+-- vim.o.incsearch = false
+vim.wo.signcolumn = 'yes'
+
 require('vgit').setup({
 keymaps = {
     ['n <C-k>'] = 'hunk_up',

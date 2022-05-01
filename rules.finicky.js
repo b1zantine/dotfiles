@@ -11,7 +11,7 @@ module.exports = {
         {
             // Open any url that includes the string "workplace" in Firefox
             match: [
-                "*.zoom.us/*"
+                "*.zoom.us/j/*"
                 // finicky.matchDomains(/.*\.zoom.us/),
                 // /zoom.us\/j\//,
             ],
