@@ -14,9 +14,9 @@ nnoremap <leader>q :q<CR>
 nnoremap Q :q!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
-nnoremap <leader>ev :tabe ~/dotfiles/nvim-config/init.vim<CR>
-nnoremap <leader>ef :tabe ~/dotfiles/fish-config/config.fish<CR>
-nnoremap <leader>so :so $MYVIMRC<CR>
+nnoremap <leader>ev :tabe ~/dotfiles/nvim/init.vim<CR>
+nnoremap <leader>ef :tabe ~/dotfiles/fish/config.fish<CR>
+nnoremap <leader>so :so ~/dotfiles/nvim/init.vim<CR>
 nnoremap <leader>p :set paste! <CR>
 nnoremap <leader>sr :%s/
 " jump to last edited line
@@ -41,6 +41,11 @@ nnoremap <Leader>te :tabe
 " move between buffers in a tab. Press Alt+Shift+{<, >} keys
 nnoremap <M->> :bnext<CR>
 nnoremap <M-<> :bprevious<CR>
+" jump to a specific tab using "Number+," key combo
+for i in range(1, 9)
+    exec 'nnoremap ' .. i .. ', ' .. i .. 'gt'
+endfor
+
 " navigate between different panes
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -211,8 +216,8 @@ vim.wo.signcolumn = 'yes'
 
 require('vgit').setup({
 keymaps = {
-    ['n <C-k>'] = 'hunk_up',
-    ['n <C-j>'] = 'hunk_down',
+    ['n <leader>nh'] = 'hunk_up',
+    ['n <leader>ph'] = 'hunk_down',
     ['n <leader>gs'] = 'buffer_hunk_stage',
     ['n <leader>gr'] = 'buffer_hunk_reset',
     ['n <leader>gp'] = 'buffer_hunk_preview',

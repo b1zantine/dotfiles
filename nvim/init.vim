@@ -10,7 +10,7 @@ if dein#load_state('~/.cache/dein')
 
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-    source ~/dotfiles/nvim-config/bundles.vim
+    source ~/dotfiles/nvim/bundles.vim
 
     call dein#end()
     call dein#save_state()
@@ -51,10 +51,6 @@ set tabstop=4 shiftwidth=4 softtabstop=4
 set foldmethod=indent
 set smartindent
 set foldlevel=99
-" jump to a specific tab using "Number+," key combo
-for i in range(1, 9)
-    exec 'nnoremap ' .. i .. ', ' .. i .. 'gt'
-endfor
 
 "system related settings
 set mouse=a
@@ -91,7 +87,7 @@ set termguicolors
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
 
 "include key bindings
-source ~/dotfiles/nvim-config/key-bindings.vim
+source ~/dotfiles/nvim/key-bindings.vim
 
 
 """""""""""""""""""""""""

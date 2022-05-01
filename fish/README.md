@@ -1,13 +1,13 @@
 1. Fish Installation
 
 ```
-ln -s ~/dotfiles/fish-config ~/.config/fish
+ln -s ~/dotfiles/fish ~/.config/fish
 
-brew install fish  
+brew install fish
 curl -L https://get.oh-my.fish | fish
 ```
 
-2. Change Shell 
+2. Change Shell
 
 On intel mac
 ```
@@ -45,5 +45,3 @@ We configure Meta key to Left alt key.
 `ITerm2 -> Preferences -> Profiles -> keys -> General -> Choose "left Option key " as "Esc+"`
 
 Note: This is needed for neovim key mapping which makes lines move up and down to work.
-
-

@@ -2,7 +2,7 @@
 
 ```
 mkdir -p ~/.config/nvim/
-ln -s ~/dotfiles/nvim-config/init.vim ~/.config/nvim/init.vim
+ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 ```
 
 2. Install neovim
@@ -31,7 +31,7 @@ brew install ripgrep
 
 6. Install Powerline fonts
   - Follow the instructions [here](https://github.com/powerline/fonts) to install the fonts.
-  - In Iterm2, under profiles, pick the font "Droid Sans Mono for Powerline" 
+  - In Iterm2, under profiles, pick the font "Droid Sans Mono for Powerline"
 
 7. Install additional dependencies
 ```
