@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<false/>
+	<key>AlwaysAcceptFirstMouse</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>ApplePressAndHoldEnabled</key>
@@ -16,6 +20,8 @@
 	<string>akainu</string>
 	<key>Default Bookmark Guid</key>
 	<string>79178408-910C-4966-A95F-C9FD3731E293</string>
+	<key>DoubleReportScrollWheel</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>

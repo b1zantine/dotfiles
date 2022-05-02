@@ -68,12 +68,13 @@ vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv
 
 " UndoTree
-nnoremap <Leader>ut :UndotreeToggle<cr>
+nnoremap <Leader>ut :UndotreeToggle<CR>
 nnoremap <F5> :UndotreeToggle<CR>
 
 " Tagbar
-nnoremap <Leader>tb :TagbarToggle<cr>
+nnoremap <Leader>tb :TagbarToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
+nnoremap <leader>tf :call TagbarFocus()<CR>
 
 "map arrowkey to change viewports size
 nnoremap <Right> :vertical resize -5<CR>
@@ -91,6 +92,7 @@ tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
 "key mappings for plugins
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <leader>nt :NERDTree<CR>
+nnoremap <leader>nf :NERDTreeFocus<CR>
 
 "telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -211,8 +213,8 @@ nnoremap <leader><C-r> :<C-u>Denite register:.<CR>
 lua << EOF
 -- below config avoids vim flickering while editing
 vim.o.updatetime = 300
--- vim.o.incsearch = false
 vim.wo.signcolumn = 'yes'
+-- vim.o.incsearch = false
 
 require('vgit').setup({
 keymaps = {

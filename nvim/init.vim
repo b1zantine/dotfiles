@@ -86,6 +86,9 @@ set termguicolors
 
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
 
+
+source ~/dotfiles/nvim/script.vim
+
 "include key bindings
 source ~/dotfiles/nvim/key-bindings.vim
 
@@ -145,7 +148,7 @@ let g:nerdtree_tabs_focus_on_files = 1
 "autocmd VimEnter * NERDTreeMirrorOpen
 "autocmd VimEnter * NERDTreeTabsOpen
 
-" airline configuration
+" airline configuration -------------------------------- {{{
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='luna'
@@ -157,7 +160,8 @@ if !exists('g:airline_symbols')
 endif
 
 " get branch name and set it in airline manually without using extensions
-let g:airline_section_b = printf('%s %s', "\uE0A0", gitbranch#name())
+let git_branch_name = gitbranch#name()
+let g:airline_section_b = git_branch_name =~ '^\s*$' ? '...' : printf('%s %s', "\uE0A0", gitbranch#name())
 
 "let g:airline#extensions#branch#enabled = 1
 "let g:airline#extensions#branch#empty_message = '...'
@@ -173,6 +177,7 @@ let g:airline#extensions#ale#indicator_infos = "\uf129"
 let g:airline#extensions#ale#indicator_warnings = "\uf071"
 let g:airline#extensions#ale#indicator_errors = "\uf05e"
 let g:airline#extensions#ale#indicator_ok = "\uf00c"
+" }}}
 
 "Syntastic customization
 "doesn't support fish, so point it to any other shell like sh, zsh, bash
@@ -238,14 +243,14 @@ let g:airline#extensions#ale#indicator_ok = "\uf00c"
  "let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
 
 
- " Plugin config to add before loading the plugins itself
- set omnifunc=ale#completion#OmniFunc
- let g:ale_completion_enabled = 1
- let g:ale_completion_autoimport = 1
- let g:ale_floating_preview = 1
- let g:ale_hover_to_floating_preview = 1
- let g:ale_detail_to_floating_preview = 1
- let g:ale_lsp_suggestions = 1
+" Plugin config to add before loading the plugins itself
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
+let g:ale_floating_preview = 1
+let g:ale_hover_to_floating_preview = 1
+let g:ale_detail_to_floating_preview = 1
+let g:ale_lsp_suggestions = 1
 
 let g:ale_sign_error = "🐞"
 let g:ale_sign_warning = "⚠️"
@@ -254,13 +259,13 @@ let g:ale_sign_info = "ℹ"
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = "🔥 "
 
- let g:ale_fix_on_save = 1
- let g:ale_fixers = {
-       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-       \ 'rust': ['rustfmt', 'rls'],
-       \ 'python': ['autopep8'],
-       \ 'javascript': ['prettier', 'eslint'],
-       \ 'typescript': ['prettier', 'eslint'],
-       \ 'css': ['prettier'],
-       \ 'json': ['prettier'],
-       \}
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'rust': ['rustfmt', 'rls'],
+    \ 'python': ['autopep8'],
+    \ 'javascript': ['prettier', 'eslint'],
+    \ 'typescript': ['prettier', 'eslint'],
+    \ 'css': ['prettier'],
+    \ 'json': ['prettier'],
+    \}
