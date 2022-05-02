@@ -48,7 +48,7 @@ set autoindent
 set copyindent
 set shiftround
 set tabstop=4 shiftwidth=4 softtabstop=4
-set foldmethod=indent
+set foldmethod=marker
 set smartindent
 set foldlevel=99
 
@@ -96,17 +96,18 @@ source ~/dotfiles/nvim/key-bindings.vim
 """""""""""""""""""""""""
 """" Plugin settings """"
 """""""""""""""""""""""""
+" Plugin Settings ------------------------------------------ {{{1
 
-" Tagbar Bin path
+" Tagbar Bin path -------------------------------------- {{{2
 " system(..) returns with a newline character at end. This trims it.
 let uname = substitute(system('uname -m'), '\n\+$', '', '')
 " needed this for homebrew in apple silicon
 if uname == 'arm64'
     let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
 endif
+" }}}
 
-
-"Starify settings
+" Starify settings ------------------------------------ {{{2
 " let g:startify_custom_footer =
 "       \ map(split(system('fortune | cowsay -f calvin'), '\n'), '"   ". v:val') + ['']
 let g:startify_custom_header= [
@@ -131,8 +132,9 @@ let g:startify_bookmarks = [
     \ '~/projects',
     \ '~/dotfiles',
     \ ]
+" }}}
 
-"Nerdtree settings
+" Nerdtree settings --------------------------------- {{{2
 " let g:nerdtree_tabs_open_on_console_startup=1
 "let g:nerdtree_tabs_smart_startup_focus = 1
 "let g:nerdtree_tabs_open_on_new_tab= 1
@@ -147,8 +149,9 @@ let g:nerdtree_tabs_focus_on_files = 1
 "autocmd VimEnter * NERDTreeMirror
 "autocmd VimEnter * NERDTreeMirrorOpen
 "autocmd VimEnter * NERDTreeTabsOpen
+"}}}
 
-" airline configuration -------------------------------- {{{
+" airline configuration -------------------------------- {{{2
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='luna'
@@ -160,8 +163,7 @@ if !exists('g:airline_symbols')
 endif
 
 " get branch name and set it in airline manually without using extensions
-let git_branch_name = gitbranch#name()
-let g:airline_section_b = git_branch_name =~ '^\s*$' ? '...' : printf('%s %s', "\uE0A0", gitbranch#name())
+let g:airline_section_b = gitbranch#name() =~ '^\s*$' ? '...' : printf('%s %s', "\uE0A0", gitbranch#name())
 
 "let g:airline#extensions#branch#enabled = 1
 "let g:airline#extensions#branch#empty_message = '...'
@@ -179,7 +181,7 @@ let g:airline#extensions#ale#indicator_errors = "\uf05e"
 let g:airline#extensions#ale#indicator_ok = "\uf00c"
 " }}}
 
-"Syntastic customization
+" Syntastic customization --------------------------------- {{{2
 "doesn't support fish, so point it to any other shell like sh, zsh, bash
 "let g:syntastic_shell = '/bin/zsh'
 "let g:syntastic_python_python_exe = '/usr/bin/python3'
@@ -241,9 +243,11 @@ let g:airline#extensions#ale#indicator_ok = "\uf00c"
  "let g:LanguageClient_loggingLevel = 'INFO'
  "let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
  "let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+" }}}
 
 
-" Plugin config to add before loading the plugins itself
+" Ale config ------------------------------------------ {{{2
+" This config needs to be loaded before loading the plugin itself
 set omnifunc=ale#completion#OmniFunc
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
@@ -269,3 +273,7 @@ let g:ale_fixers = {
     \ 'css': ['prettier'],
     \ 'json': ['prettier'],
     \}
+" }}}
+
+
+" }}}
