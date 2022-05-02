@@ -29,9 +29,9 @@ Note: Tagbar works better with universal-ctags without any additional setup
 brew install ripgrep
 ```
 
-6. Install Powerline fonts
-  - Follow the instructions [here](https://github.com/powerline/fonts) to install the fonts.
-  - In Iterm2, under profiles, pick the font "Droid Sans Mono for Powerline"
+6. Install Nerd fonts
+  - Follow the instructions [here](https://github.com/ryanoasis/nerd-fonts) to install the fonts or specific font.
+  - In Iterm2, under profiles, pick the font "DroidSansMono Nerd Font"
 
 7. Install additional dependencies
 ```

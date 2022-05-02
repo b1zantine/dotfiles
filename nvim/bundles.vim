@@ -7,6 +7,9 @@
 "call dein#add('honza/vim-snippets')
 
 
+call dein#add('kyazdani42/nvim-web-devicons')           " used with telescope
+call dein#add('ryanoasis/vim-devicons')                 " used with nerdtree
+
 call dein#add('Shougo/denite.nvim')                     "alternative for unite.vim
 
 "Fuzzy finder
@@ -52,7 +55,6 @@ call dein#add('majutsushi/tagbar')
 call dein#add('tpope/vim-surround')
 "call dein#add('tpope/vim-obsession')                    "saves current state of Vim: window positions, open folds
 
-call dein#add('kyazdani42/nvim-web-devicons')
 
 call dein#add('voldikss/vim-floaterm')                  " Terminal inside vim
 
