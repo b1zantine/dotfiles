@@ -1597,6 +1597,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string>👨‍💻</string>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -1623,7 +1625,7 @@
 			<key>Columns</key>
 			<integer>130</integer>
 			<key>Command</key>
-			<string>ssh aviuser@10.102.67.21</string>
+			<string>ssh aviuser@10.102.96.94</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2049,6 +2051,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Title Components</key>
+			<integer>258</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -2147,5 +2151,11 @@
 	<false/>
 	<key>Window Arrangements</key>
 	<dict/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>

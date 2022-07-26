@@ -1,17 +1,4 @@
-# git aliases
-alias gst="git status"
-alias gcb="git checkout -b"
-alias gl="git log --oneline -n 10"
-alias gaa="git add -A"
-alias gpom="git push origin mainline"
-alias gcm="git commit -m"
-
-alias dot="cd ~/dotfiles/ && nvim"
-alias code="cd ~/Code/"
-alias ws="cd ~/workspace/"
-
-alias rpi="ssh pi@raspberrypi"
-alias dev="ssh aviuser@10.102.67.21"
+source ~/dotfiles/aliases.sh
 
 # On Apple silicon mac
 if [ (uname -m) = 'arm64' ]
@@ -30,6 +17,9 @@ set -x GPG_TTY (tty)
 
 ###### ---- PATHS  ----
 set -x PATH $PATH /usr/bin /usr/local/bin /usr/local/sbin /opt/homebrew/bin
+
+# Rancher Desktop
+set -x PATH $PATH ~/.rd/bin
 
 # KubeCtl - Kubernetes Cluster manager
 set -x PATH $PATH $HOME/.kubectl

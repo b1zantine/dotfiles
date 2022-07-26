@@ -1,0 +1,63 @@
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="b1zantine"
+
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+#######
+# User Configuration
+#######
+
+source ~/dotfiles/aliases.sh
+
+# On Apple silicon mac
+if [[ $(uname -m) == "arm64" ]]; then
+    alias vim="/opt/homebrew/bin/nvim"
+    export EDITOR=/opt/homebrew/bin/nvim
+
+else  # On Intel mac
+    alias vim="/usr/local/bin/nvim"
+    export EDITOR=/usr/local/bin/nvim
+fi
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# For solving git signing issue
+export GPG_TTY=$(tty)
+
+###### ---- PATHS  ----
+export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/bin"
+
+# Rancher Desktop
+export PATH="$PATH:~/.rd/bin"
+
+# KubeCtl - Kubernetes Cluster manager
+export PATH="$PATH:$HOME/.kubectl"
+
+# Rust
+export PATH="$PATH:$HOME/.cargo/bin"
+
+# GVM - Go Version Manager
+# https://github.com/moovweb/gvm
+[[ -s "/Users/ssudar/.gvm/scripts/gvm" ]] && source "/Users/ssudar/.gvm/scripts/gvm"
+
+# Load ZSH completions
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
+# iterm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
