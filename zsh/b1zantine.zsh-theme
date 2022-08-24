@@ -216,5 +216,5 @@ TRAPALRM() {
 # PROMPT='$(directory) $(git_status)$(command_status) ';
 
 # prompt
-PROMPT='$(login_info) $(directory) $(git_status)$(command_status) ';
+PROMPT='$(directory) $(git_status)$(command_status) ';
 RPROMPT=' $(real_time)'

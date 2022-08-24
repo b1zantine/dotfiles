@@ -8,3 +8,6 @@
     path = ~/.gitconfig_personal
 [init]
 	defaultBranch = main
+
+[url "git@gitlab.eng.vmware.com:"]
+    insteadOf = https://gitlab.eng.vmware.com/

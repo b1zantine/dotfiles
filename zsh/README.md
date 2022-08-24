@@ -16,17 +16,12 @@ ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/b1zantine.zsh-theme $ZSH_CUSTOM/themes/b1zantine.zsh-theme
 ```
 
-4. Setup zsh-autosuggestions
+4. Install ZSH Plugins
 
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-```
-
-5. Setup zsh-syntax-highlighting
-
-```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
 ```
 
 5. Change Shell
@@ -35,4 +30,3 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sudo bash -c 'echo /bin/zsh >> /etc/shells'
 chsh -s /bin/zsh
 ```
-
