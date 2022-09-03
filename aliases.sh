@@ -15,3 +15,4 @@ alias dev="ssh aviuser@10.102.96.94"
 
 alias fishit="source ~/.config/fish/config.fish"
 alias pm="podman"
+alias k="kubectl"

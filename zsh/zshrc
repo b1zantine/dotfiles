@@ -45,6 +45,9 @@ export PATH="$PATH:~/.rd/bin"
 # KubeCtl - Kubernetes Cluster manager
 export PATH="$PATH:$HOME/.kubectl"
 
+# Kind - K8s in docker
+export KIND_EXPERIMENTAL_PROVIDER=podman
+
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
 
