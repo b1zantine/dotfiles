@@ -1,5 +1,5 @@
 module.exports = {
-    defaultBrowser: "Firefox",
+    defaultBrowser: "Arc",
     rewrite: [
         {
             // Redirect all urls to use https
