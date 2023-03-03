@@ -10,6 +10,8 @@ alias dot="cd ~/dotfiles/ && nvim"
 alias code="cd ~/Code/"
 alias ws="cd ~/workspace/"
 
+alias avia="cd ~/workspace/avi-apiserver"
+
 alias rpi="ssh pi@raspberrypi"
 alias dev="ssh aviuser@10.102.96.94"
 

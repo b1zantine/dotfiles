@@ -55,6 +55,10 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # https://github.com/moovweb/gvm
 [[ -s "/Users/ssudar/.gvm/scripts/gvm" ]] && source "/Users/ssudar/.gvm/scripts/gvm"
 
+# JAVA
+JAVA_VERSION=11
+export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+
 # Load ZSH completions
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
