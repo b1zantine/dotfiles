@@ -20,3 +20,4 @@
         `ln -s ~/dotfiles/firefox/chrome ~/Library/Application\ Support/Firefox/Profiles/5iueezxj.default-release/chrome`
         [Ref1](https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules)
         [Ref2](https://gist.github.com/eizedev/f0a65275859b16e2649656d2e283dc81)
+
