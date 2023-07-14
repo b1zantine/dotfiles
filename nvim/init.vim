@@ -128,7 +128,8 @@ let g:startify_files_number        = 5
 let g:startify_change_to_dir       = 0
 
 let g:startify_bookmarks = [
-    \ '~/workspace/avi-dev',
+    \ '~/workspace/avi-apiserver',
+    \ '~/workspace',
     \ '~/projects',
     \ '~/dotfiles',
     \ ]
@@ -181,7 +182,7 @@ let g:airline#extensions#ale#indicator_errors = "\uf05e"
 let g:airline#extensions#ale#indicator_ok = "\uf00c"
 " }}}
 
-" Syntastic customization --------------------------------- {{{2
+"Syntastic customization
 "doesn't support fish, so point it to any other shell like sh, zsh, bash
 "let g:syntastic_shell = '/bin/zsh'
 "let g:syntastic_python_python_exe = '/usr/bin/python3'
@@ -243,7 +244,6 @@ let g:airline#extensions#ale#indicator_ok = "\uf00c"
  "let g:LanguageClient_loggingLevel = 'INFO'
  "let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
  "let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
-" }}}
 
 
 " Ale config ------------------------------------------ {{{2
@@ -274,6 +274,4 @@ let g:ale_fixers = {
     \ 'json': ['prettier'],
     \}
 " }}}
-
-
 " }}}

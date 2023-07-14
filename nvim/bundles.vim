@@ -64,7 +64,7 @@ call dein#add('nvim-telescope/telescope.nvim')
 
 call dein#add('tanvirtin/vgit.nvim')
 
-"call dein#add('github/copilot.vim')
+call dein#add('github/copilot.vim')
 "Plugins to explore
 "https://github.com/kevinhwang91/rnvimr
 "https://github.com/voldikss/vim-floaterm
