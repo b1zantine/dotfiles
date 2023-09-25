@@ -25,11 +25,11 @@ if [[ -f ~/login_to_ecr.zsh ]]; then
 fi
 
 # On Apple silicon mac
-if [[ $(uname -m) == "arm64" ]]; then
+if [[ $(uname -s) == "Darwin"  && $(uname -m) == "arm64" ]]; then
     alias vim="/opt/homebrew/bin/nvim"
     export EDITOR=/opt/homebrew/bin/nvim
 
-else  # On Intel mac
+elif [[ $(uname -s) == "Darwin" ]]; then  # On Intel mac
     alias vim="/usr/local/bin/nvim"
     export EDITOR=/usr/local/bin/nvim
 fi
@@ -50,9 +50,6 @@ export PATH="$PATH:~/.rd/bin"
 export PATH="$PATH:$HOME/.kubectl"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# Kind - K8s in docker
-#export KIND_EXPERIMENTAL_PROVIDER=podman
-
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -61,8 +58,10 @@ export PATH="$PATH:$HOME/.cargo/bin"
 [[ -s "/Users/ssudar/.gvm/scripts/gvm" ]] && source "/Users/ssudar/.gvm/scripts/gvm"
 
 # JAVA
-JAVA_VERSION=11
-export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+if [[ -f /usr/libexec/java_home ]]; then
+    JAVA_VERSION=11
+    export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+fi
 
 # Load ZSH completions
 if type brew &>/dev/null; then
