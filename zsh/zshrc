@@ -20,6 +20,10 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/dotfiles/aliases.sh
 
+if [[ -f ~/login_to_ecr.zsh ]]; then
+    source ~/login_to_ecr.zsh
+fi
+
 # On Apple silicon mac
 if [[ $(uname -m) == "arm64" ]]; then
     alias vim="/opt/homebrew/bin/nvim"
