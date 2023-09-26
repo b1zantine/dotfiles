@@ -57,10 +57,19 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # https://github.com/moovweb/gvm
 [[ -s "/Users/ssudar/.gvm/scripts/gvm" ]] && source "/Users/ssudar/.gvm/scripts/gvm"
 
-# JAVA
-if [[ -f /usr/libexec/java_home ]]; then
-    JAVA_VERSION=11
-    export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION)
+# JAVA - jenv
+# brew install jenv
+if command -v jenv &> /dev/null; then
+    # load jenv
+    eval "$(jenv init -)"
+fi
+
+# Python - pyenv
+# brew install pyenv
+if command -v pyenv >/dev/null; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
 
 # Load ZSH completions
