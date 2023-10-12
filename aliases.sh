@@ -6,6 +6,8 @@ alias gaa="git add -A"
 alias gpom="git push origin mainline"
 alias gcm="git commit -m"
 
+alias teleport="~/dotfiles/teleport.py"
+
 alias dot="cd ~/dotfiles/ && nvim"
 alias code="cd ~/Code/"
 alias ws="cd ~/workspace/"
