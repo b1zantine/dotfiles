@@ -80,6 +80,10 @@ if type brew &>/dev/null; then
     compinit
 fi
 
+function ssht {
+    ssh -t $1 "tmux -CC attach || tmux -CC"
+}
+
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
