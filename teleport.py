@@ -22,8 +22,10 @@ Config file example:
 {
     "repos": [
         {
-            "source": "/Users/b1zantine/avi-dev/",
-            "destination": "aviuser@10.0.1.1:~/avi-dev/",
+            "source": "/Users/ssudar/workspace/avi-dev/",
+            "destinations": [
+                "aviuser@10.102.96.94:~/avi-dev/"
+            ],
             "excludedPaths": [
                 "build"
             ]
@@ -113,12 +115,13 @@ def sync_repo(repo):
     if "excludedPaths" in repo:
         excludeParams = ' '.join(["--exclude=" + s for s in repo['excludedPaths']])
 
-    # gitExcludes = '--exclude=.git/index.lock --exclude=.git/HEAD.lock --exclude=.git/refs/*/*.lock --exclude=.git/objects/pack/tmp_pack_*'
-    cmd = f"rsync -az --no-owner --no-group --delete {excludeParams} --exclude=.git/ {repo['source']} {repo['destination']}"
+    for destination in repo['destinations']:
+        # gitExcludes = '--exclude=.git/index.lock --exclude=.git/HEAD.lock --exclude=.git/refs/*/*.lock --exclude=.git/objects/pack/tmp_pack_*'
+        cmd = f"rsync -az --no-owner --no-group --delete {excludeParams} --exclude=.git/ {repo['source']} {destination}"
 
-    logging.info(f"SYNCING {repo['source']} . . .")
-    subprocess.call(shlex.split(cmd))
-    logging.info(f"SYNCED {repo['source']}")
+        logging.info(f"SYNCING {repo['source']} to {destination} . . .")
+        subprocess.call(shlex.split(cmd))
+        logging.info(f"SYNCED {repo['source']} to {destination}")
 
 def teleport():
     config = load_config()
