@@ -673,6 +673,14 @@
 					<key>regex</key>
 					<string>Password for ssudar:</string>
 				</dict>
+				<dict>
+					<key>action</key>
+					<string>BellTrigger</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>[INFO] BUILD SUCCESS</string>
+				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
 			<false/>

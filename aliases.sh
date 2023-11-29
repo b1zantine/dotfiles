@@ -16,6 +16,7 @@ alias avia="cd ~/workspace/avi-apiserver"
 
 alias rpi="ssh pi@raspberrypi"
 alias dev="ssh aviuser@10.102.96.94"
+alias dbc="ssh ssudar@blr-dbc2113.eng.vmware.com"
 
 alias fishit="source ~/.config/fish/config.fish"
 alias pm="podman"
