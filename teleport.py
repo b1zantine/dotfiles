@@ -28,7 +28,8 @@ Config file example:
             ],
             "excludedPaths": [
                 "build"
-            ]
+            ],
+            "excludeGit": true
         },
         ...
     ]
@@ -128,7 +129,7 @@ def sync_repo(repo):
     if "excludedPaths" in repo:
         excludeParams = " ".join(["--exclude=" + s for s in repo["excludedPaths"]])
     
-    if "excludeGit" in repo:
+    if "excludeGit" in repo and repo["excludeGit"]:
         excludeParams = excludeParams + " --exclude=.git/"
 
     for destination in repo["destinations"]:
